@@ -6,7 +6,7 @@ abort("The Rails environment is running in production mode!") if Rails.env.produ
 require 'spec_helper'
 require 'rspec/rails'
 require 'capybara/rails'
-require 'support/factory_girl'
+require 'factory_girl_rails'
 require 'database_cleaner'
 
 DatabaseCleaner.strategy = :truncation
@@ -18,6 +18,7 @@ Capybara.register_driver :selenium do |app|
 end
 
 Capybara.default_driver = :selenium
+# FactoryGirl.find_definitions 
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are
 # run as spec files by default. This means that files in spec/support that end
@@ -39,9 +40,12 @@ ActiveRecord::Migration.maintain_test_schema!
 
 RSpec.configure do |config|
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
+  #
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
+
   config.include Warden::Test::Helpers
 
+  config.include FactoryGirl::Syntax::Methods
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
   # examples within a transaction, remove the following line or assign false
   # instead of true.;

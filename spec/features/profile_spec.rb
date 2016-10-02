@@ -1,3 +1,5 @@
+require "rails_helper"
+
 describe "the profile page", type: :feature do
   let(:user) { FactoryGirl.create(:user_with_products) }
 

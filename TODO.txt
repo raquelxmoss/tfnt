@@ -1,0 +1,23 @@
+# Sign up form configure
+  X Devise fields
+  X Name
+
+# Profile page
+  X Name
+  X Email
+
+# Make some products
+  X Robot seeder
+  X Add Robots to Users
+  - Show Robots on User page
+
+# Seed
+  X Faker
+
+# Unit tests
+# Integration tests
+# Style
+  - Pure or Themed Bootstrap
+
+# Bonus
+  - Email

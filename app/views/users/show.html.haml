@@ -1,0 +1,19 @@
+%h1
+  Welcome, #{@user.name}
+%section
+  %h2 Your Details
+  %p
+    %strong Email:
+    %span= @user.email
+
+- if @user.products
+  %section
+    %h2 Your Subscriptions
+
+    - @user.products.each do |product|
+      .product
+        = image_tag product.image
+        %h3= product.name
+        %h4 #{number_to_currency(product.price)}/month
+        %p= product.description
+

@@ -5,4 +5,8 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   has_many :user_products
   has_many :products, through: :user_products
+
+  def name
+    "#{first_name} #{last_name}"
+  end
 end

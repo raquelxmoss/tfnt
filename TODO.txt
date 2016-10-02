@@ -1,23 +1,38 @@
-# Sign up form configure
-  X Devise fields
-  X Name
+- Quick intro into who I am
 
-# Profile page
-  X Name
-  X Email
+- What I have -- a sign up form, some products
 
-# Make some products
-  X Robot seeder
-  X Add Robots to Users
-  - Show Robots on User page
+- So, our Robot company here has decided to switch to a new billing software. They're really excited about it, because it's going to save us a lot of time and money, and it's going to be much better for our customers. So that's fantastic. There's one hitch -- it requires a first name and a last name, but up until now, we've just been using a 'Name' field
 
-# Seed
-  X Faker
+- So, we're going to add the field to the form, and see what other changes we have to make to the app to keep everything going well.
 
-# Unit tests
-# Integration tests
-# Style
-  - Pure or Themed Bootstrap
+- Add field to form, discover error.
+
+- Migration
+
+- Data migration, what to do? Demo in IRB
+
+- Discussions on how to solve the problem -- do it with the algorithm, let people edit.
+  !!! We don't have an edit function!
+  We need to add that to the TODO list!
+
+- Up/Down migration
+
+- Migrate
+
+- Run the tests -- everything is failing wherever #name is used
+
+- Anywhere #name is used
+  - Default to first name?
+  - Preferred name?
+
+- Name a #name method
+
+- Specs pass
+
+- Some might actually be false positives
+
+- Add edit feature
 
 # Bonus
   - Email

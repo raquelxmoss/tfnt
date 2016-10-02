@@ -11,7 +11,7 @@ describe "the profile page", type: :feature do
   it "Shows the correct user profile" do
     visit root_path
 
-    expect(page).to have_content user.name
+    expect(page).to have_content user.first_name
   end
 
   it "Shows the user's products" do

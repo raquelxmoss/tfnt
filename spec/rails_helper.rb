@@ -9,10 +9,6 @@ require 'capybara/rails'
 require 'factory_girl_rails'
 require 'database_cleaner'
 
-DatabaseCleaner.strategy = :truncation
-# then, whenever you need to clean the DB
-DatabaseCleaner.clean
-# Add additional requires below this line. Rails is not loaded until this point!
 Capybara.register_driver :selenium do |app|
   Capybara::Selenium::Driver.new(app, :browser => :chrome)
 end
@@ -46,10 +42,23 @@ RSpec.configure do |config|
   config.include Warden::Test::Helpers
 
   config.include FactoryGirl::Syntax::Methods
+
+  config.use_transactional_fixtures = false
+
+  config.before(:suite) do
+    DatabaseCleaner.strategy = :truncation
+  end
+
+  config.before(:each) do
+    DatabaseCleaner.start
+  end
+
+  config.after(:each) do
+    DatabaseCleaner.clean
+  end
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
   # examples within a transaction, remove the following line or assign false
   # instead of true.;
-  config.use_transactional_fixtures = true
 
   # RSpec Rails can automatically mix in different behaviours to your tests
   # based on their file location, for example enabling you to call `get` and

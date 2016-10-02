@@ -32,7 +32,10 @@ group :development, :test do
   # gem "rspec"
   gem "rspec-rails"
   gem "capybara"
+  gem "selenium-webdriver"
   gem "faker"
+  gem "chromedriver-helper"
+  gem "factory_girl_rails"
 end
 
 group :development do
@@ -44,5 +47,6 @@ group :development do
 end
 
 group :test do
+  gem 'database_cleaner'
 end
 

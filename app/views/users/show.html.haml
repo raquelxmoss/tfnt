@@ -1,19 +1,18 @@
 %h1
   Welcome, #{@user.name}
-%section
-  %h2 Your Details
-  %p
-    %strong Email:
-    %span= @user.email
-
+%hr
 - if @user.products
   %section
-    %h2 Your Subscriptions
-
-    - @user.products.each do |product|
-      .product
-        = image_tag product.image
-        %h3= product.name
-        %h4 #{number_to_currency(product.price)}/month
-        %p= product.description
+    .row
+      .col-sm-12
+        %h2 Your Subscriptions
+        - @user.products.each do |product|
+          .row.product
+            .col-sm-4
+              = image_tag product.image, class: "img img-circle"
+              %h4 #{number_to_currency(product.price)}/month
+            .col-sm-8
+              %h3= product.name
+              %p= product.description
+          %hr
 

@@ -10,5 +10,9 @@
       %a.navbar-brand{:href => "#"} Robot Services
     / Collect the nav links, forms, and other content for toggling
     #bs-example-navbar-collapse-1.collapse.navbar-collapse
-      -# %ul.nav.navbar-nav.navbar-right
-      -#   %li
+      %ul.nav.navbar-nav.navbar-right
+        - if current_user
+          %li= link_to "Sign out", destroy_user_session_path, method: :delete
+        - else
+          %li= link_to "Sign up", new_user_registration_path
+          %li= link_to "Sign in", new_user_session_path
